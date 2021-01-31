@@ -1,3 +1,5 @@
 python-pptx
 comtypes
 PyPDF2
+pyinstaller
+Click
