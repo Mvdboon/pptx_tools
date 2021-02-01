@@ -25,6 +25,11 @@ def main():
 @click.option("-i", "--identifiers", default=["A.", "B.", "C."], show_default=True, help="List of strings that all have to be present for excluding the page.")
 def rm_Pages(identifiers, file):
     """Remove pages based on list of strings present on PDF page."""
+    if identifiers.__class__ == str:
+        tmp = identifiers.split(',')
+        identifiers = []
+        for t in tmp:
+            identifiers.append(t)
     if not file:
         for f in glob.glob("input/*.pdf"):
             removePagesBasedOnTextSub(f, identifiers)
